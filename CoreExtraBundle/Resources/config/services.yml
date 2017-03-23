@@ -1,0 +1,7 @@
+services:
+    notification_manager:
+        class: "CoreExtraBundle\\Service\\NotificationManager"
+        calls:
+            - [setContainer, ["@service_container"] ] 
+            
+    
