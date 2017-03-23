@@ -1,0 +1,23 @@
+{
+    "name": "sebardo/core_extra",
+    "type": "library",
+    "description": "Extra tools for sandbox",
+    "keywords": ["extra","core"],
+    "homepage": "https://github.com/sebardo/core_extra",
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "Dario Sebastian Sasturain",
+            "email": "sebastian.sasturain@gmail.com",
+            "homepage": "http://sasturain.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "sebardo/core": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {"CoreExtraBundle\\": "CoreExtraBundle"}
+    }
+}
