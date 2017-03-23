@@ -27,7 +27,7 @@ class PostalCode
     /**
      * @var Country
      *
-     * @ORM\ManyToOne(targetEntity="Country")
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Country")
      * @ORM\JoinColumn(name="country_id", referencedColumnName="id", nullable=true, onDelete="set null")
      */
     private $country;
