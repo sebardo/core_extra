@@ -77,7 +77,7 @@ class SliderController extends Controller
             
             $this->get('session')->getFlashBag()->add('success', 'slider.created');
 
-            return $this->redirectToRoute('core_slider_show', array('id' => $slider->getId()));
+            return $this->redirectToRoute('coreextra_slider_show', array('id' => $slider->getId()));
         }
 
         return array(
@@ -130,7 +130,7 @@ class SliderController extends Controller
 
             $this->get('session')->getFlashBag()->add('success', 'slider.edited');
             
-            return $this->redirectToRoute('core_slider_show', array('id' => $slider->getId()));
+            return $this->redirectToRoute('coreextra_slider_show', array('id' => $slider->getId()));
         }
 
         return array(
@@ -159,7 +159,7 @@ class SliderController extends Controller
             $this->get('session')->getFlashBag()->add('info', 'slider.deleted');
         }
 
-        return $this->redirectToRoute('core_slider_index');
+        return $this->redirectToRoute('coreextra_slider_index');
     }
 
     /**
@@ -172,7 +172,7 @@ class SliderController extends Controller
     private function createDeleteForm(Slider $slider)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('core_slider_delete', array('id' => $slider->getId())))
+            ->setAction($this->generateUrl('coreextra_slider_delete', array('id' => $slider->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

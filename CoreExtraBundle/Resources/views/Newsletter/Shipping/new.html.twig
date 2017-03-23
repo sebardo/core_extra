@@ -13,8 +13,8 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ path('admin_default_index') }}"> <i class="ion-home"></i>  {{ "home" | trans }}</a></li>
-        <li><a href="{{ path('core_newsletter_shipping') }}">{{ "newsletter.shipping.plural" | trans }}</a></li>
-        <li><a href="{{ path('core_newsletter_newshipping') }}">{{ "new.singular" | trans }}</a></li>
+        <li><a href="{{ path('coreextra_newsletter_shipping') }}">{{ "newsletter.shipping.plural" | trans }}</a></li>
+        <li><a href="{{ path('coreextra_newsletter_newshipping') }}">{{ "new.singular" | trans }}</a></li>
       </ol>
     </section>
       
@@ -25,7 +25,7 @@
             <div class="box box-info">
                 <!-- BEGIN FORM-->
                 {{ form_start(form, {
-                                    'action': path('core_newsletter_newshipping'), 
+                                    'action': path('coreextra_newsletter_newshipping'), 
                                     'method': 'post', 
                                     'attr': {'class': 'form-horizontal form-row-seperated'}
                                     }) }}
@@ -36,7 +36,7 @@
                     <div class="box-footer">
                                          
                         <button type="submit" class="btn btn-primary btn-flat"><i class="icon-ok"></i> {{ "save" | trans }}</button>
-                        <a href="{{ path('core_newsletter_shipping') }}" class="btn btn-default btn-flat">{{ "cancel.singular" | trans }}</a>
+                        <a href="{{ path('coreextra_newsletter_shipping') }}" class="btn btn-default btn-flat">{{ "cancel.singular" | trans }}</a>
                     </div>
                 {{ form_end(form) }}
                 <!-- END FORM-->

@@ -16,16 +16,16 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home"></i>
-                        <a href="{{ path('core_admin_default_index') }}">{{ "home" | trans }}</a>
+                        <a href="{{ path('admin_default_index') }}">{{ "home" | trans }}</a>
                         <i class="icon-angle-right"></i>
                         <a href="javascript:">{{ "setup" | trans }}</a>
                         <i class="icon-angle-right"></i>
-                        <a href="{{ path('core_core_newsletter_index') }}">{{ "newsletter.plural" | trans }}</a>
+                        <a href="{{ path('coreextra_newsletter_index') }}">{{ "newsletter.plural" | trans }}</a>
                         <i class="icon-angle-right"></i>
-                        <a href="{{ path('core_core_newsletter_show', { id: entity.id }) }}">{{ entity.email }}</a>
+                        <a href="{{ path('coreextra_newsletter_show', { id: entity.id }) }}">{{ entity.email }}</a>
                         <i class="icon-angle-right"></i>
                     </li>
-                    <li><a href="{{ path('core_core_newsletter_edit', { id: entity.id }) }}">{{ "edit.singular" | trans }} </a></li>
+                    <li><a href="{{ path('coreextra_newsletter_edit', { id: entity.id }) }}">{{ "edit.singular" | trans }} </a></li>
                 </ul>
                 <!-- END PAGE TITLE & BREADCRUMB-->
             </div>
@@ -45,7 +45,7 @@
                                 <div class="portlet-body form">
                                     <!-- BEGIN FORM-->
                                     {{ form_start(form, {
-                                                        'action': path('core_newsletter_update', { id: entity.id }), 
+                                                        'action': path('coreextra_newsletter_update', { id: entity.id }), 
                                                         'method': 'post', 
                                                         'attr': {'class': 'form-horizontal form-row-seperated'}
                                                         }) }}
@@ -55,7 +55,7 @@
 
                                         <div class="form-actions">
                                             <button type="submit" class="btn blue"><i class="icon-ok"></i> {{ "save" | trans }}</button>
-                                            <a href="{{ path('core_core_newsletter_show', { id: entity.id }) }}" class="btn">{{ "cancel.singular" | trans }}</a>
+                                            <a href="{{ path('coreextra_newsletter_show', { id: entity.id }) }}" class="btn">{{ "cancel.singular" | trans }}</a>
                                             <button type="submit" class="btn red pull-right" id="delete-btn">{{ "delete" | trans }}</button>
                                         </div>
                                     {{ form_end(form) }}
@@ -63,7 +63,7 @@
                                 </div>
                             </div>
 
-                            <form id="delete-entity" action="{{ path('core_core_newsletter_delete', { id: entity.id }) }}" method="post">
+                            <form id="delete-entity" action="{{ path('coreextra_newsletter_delete', { id: entity.id }) }}" method="post">
                                 <input type="hidden" name="_method" value="DELETE" />
                                 {{ form_widget(delete_form) }}
                             </form>
@@ -82,13 +82,7 @@
 
     <script>
         jQuery(document).ready(function() {
-            $('#delete-btn').on('click', function(e) {
-                e.preventDefault();
-
-                if (confirm('{{ "are.you.sure" | trans }}')) {
-                    $('#delete-entity').submit();
-                }
-            });
+           
         });
     </script>
 {% endblock %}

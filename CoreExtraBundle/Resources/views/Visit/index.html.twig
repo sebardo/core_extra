@@ -12,7 +12,7 @@
       <ol class="breadcrumb">
         <li><a href="{{ path('admin_default_index') }}"> <i class="ion-home"></i>  {{ 'home' | trans }}</a></li>
         <li><a href="javascript:">{{ 'dashboard' | trans }}</a></li>
-        <li><a href="{{ path('core_visit_index') }}">{{ 'visits' | trans }}</a></li>
+        <li><a href="{{ path('coreextra_visit_index') }}">{{ 'visits' | trans }}</a></li>
       </ol>
     </section>
       
@@ -28,7 +28,7 @@
             <div class="box-body">
                 <div class="clearfix">
                     <div class="btn-group">
-                        <a href="{{ path('core_visit_new') }}" class="btn btn-success btn-flat">
+                        <a href="{{ path('coreextra_visit_new') }}" class="btn btn-success btn-flat">
                                 {{ 'add.new'| trans }}<i class="ion-plus"></i>
                         </a>
                     </div>
@@ -47,7 +47,7 @@
                     <tbody>
                         {% for visit in visits %}
                             <tr>                                
-                                <td><a href="{{ path('core_visit_show', { 'id': visit.id }) }}">{{ visit.id }}</a></td>                                
+                                <td><a href="{{ path('coreextra_visit_show', { 'id': visit.id }) }}">{{ visit.id }}</a></td>                                
                                 <td>{% if visit.dateFrom %}{{ visit.dateFrom|date('Y-m-d H:i:s') }}{% endif %}</td>                                
                                 <td>{% if visit.dateTo %}{{ visit.dateTo|date('Y-m-d H:i:s') }}{% endif %}</td>                                
                                 <td>{{ visit.comment }}</td>                                
@@ -56,10 +56,10 @@
                                 <td>
                                     <ul>                                        
                                         <li>
-                                            <a href="{{ path('core_visit_show', { 'id': visit.id }) }}">show</a>
+                                            <a href="{{ path('coreextra_visit_show', { 'id': visit.id }) }}">show</a>
                                         </li>                                        
                                         <li>
-                                            <a href="{{ path('core_visit_edit', { 'id': visit.id }) }}">edit</a>
+                                            <a href="{{ path('coreextra_visit_edit', { 'id': visit.id }) }}">edit</a>
                                         </li>                                    
                                     </ul>
                                 </td>                            
@@ -124,7 +124,7 @@
         jQuery(document).ready(function() {
             TableManaged.init(
                 '#{{ uniqid }}-table',
-                '{{ url('core_visit_listjson') }}',
+                '{{ url('coreextra_visit_listjson') }}',
                 [],
                 table_columns,
                 '{{ url('admin_default_getdatatablesi18n', { language: app.request.locale }) }}');

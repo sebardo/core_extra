@@ -13,8 +13,8 @@
      <ol class="breadcrumb">
         <li><a href="{{ path('admin_default_index') }}"> <i class="ion-home"></i>  {{ "home" | trans }}</a></li>
         <li><a href="javascript:">{{ "dashboard" | trans }}</a></li>
-        <li><a href="{{ path('core_font_index') }}">{{ "font.plural" | trans }}</a></li>
-        <li><a href="{{ path('core_font_show', { id: entity.id }) }}">{{ entity.name }}</a></li>
+        <li><a href="{{ path('coreextra_font_index') }}">{{ "font.plural" | trans }}</a></li>
+        <li><a href="{{ path('coreextra_font_show', { id: entity.id }) }}">{{ entity.name }}</a></li>
       </ol>
     </section>
       
@@ -53,9 +53,9 @@
                     </table>
                     <div class="box-footer">
                         <div class="col-sm-12"> 
-                            <a href="{{ path('core_font_edit', { id: entity.id }) }}" class="btn btn-primary btn-flat"><i class="ion-compose"></i> {{ "edit.singular" | trans }}</a>
+                            <a href="{{ path('coreextra_font_edit', { id: entity.id }) }}" class="btn btn-primary btn-flat"><i class="ion-compose"></i> {{ "edit.singular" | trans }}</a>
                             <button type="submit" class="btn btn-danger btn-flat pull-right" id="delete-btn">{{ "delete" | trans }}</button>    
-                            <form id="delete-entity" action="{{ path('core_font_delete', { id: entity.id }) }}" method="post">
+                            <form id="delete-entity" action="{{ path('coreextra_font_delete', { id: entity.id }) }}" method="post">
                                 <input type="hidden" name="_method" value="DELETE" />
                                 {{ form_widget(delete_form) }}
                             </form>

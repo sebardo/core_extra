@@ -70,7 +70,7 @@ class FontController extends Controller
 
             $this->get('session')->getFlashBag()->add('success', 'font.created');
             
-            return $this->redirectToRoute('core_font_show', array('id' => $font->getId()));
+            return $this->redirectToRoute('coreextra_font_show', array('id' => $font->getId()));
         }
 
         return array(
@@ -145,7 +145,7 @@ class FontController extends Controller
 
             $this->get('session')->getFlashBag()->add('success', 'font.edited');
             
-            return $this->redirectToRoute('core_font_edit', array('id' => $font->getId()));
+            return $this->redirectToRoute('coreextra_font_edit', array('id' => $font->getId()));
         }
 
         return array(
@@ -174,7 +174,7 @@ class FontController extends Controller
             $this->get('session')->getFlashBag()->add('danger', 'font.deleted');
         }
 
-        return $this->redirectToRoute('core_font_index');
+        return $this->redirectToRoute('coreextra_font_index');
     }
 
     /**
@@ -187,7 +187,7 @@ class FontController extends Controller
     private function createDeleteForm(Font $font)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('core_font_delete', array('id' => $font->getId())))
+            ->setAction($this->generateUrl('coreextra_font_delete', array('id' => $font->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

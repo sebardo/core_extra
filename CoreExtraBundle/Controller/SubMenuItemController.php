@@ -85,7 +85,7 @@ class SubMenuItemController extends Controller
             
             $this->get('session')->getFlashBag()->add('success', 'menu.created');
 
-            return $this->redirectToRoute('core_menuitem_show', array('id' => $entity->getId()));
+            return $this->redirectToRoute('coreextra_menuitem_show', array('id' => $entity->getId()));
         }
         
         return array(

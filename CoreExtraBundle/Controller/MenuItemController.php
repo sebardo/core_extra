@@ -40,7 +40,7 @@ class MenuItemController extends Controller
             $entity = $qb->getQuery()->getSingleResult();
         } catch (\Exception $exc) {
             $entity =  $em->getRepository('CoreExtraBundle:MenuItem')->getTranslateMenuItemBySlug($slug, $request->getLocale());
-            return $this->redirectToRoute('core_menuitem_menu', array('slug' => $entity->getSlug()));
+            return $this->redirectToRoute('coreextra_menuitem_menu', array('slug' => $entity->getSlug()));
         }
 
         return array(
@@ -109,7 +109,7 @@ class MenuItemController extends Controller
             
             $this->get('session')->getFlashBag()->add('success', 'menu.created');
 
-            return $this->redirectToRoute('core_menuitem_show', array('id' => $menu->getId()));
+            return $this->redirectToRoute('coreextra_menuitem_show', array('id' => $menu->getId()));
         }
 
         return array(
@@ -173,7 +173,7 @@ class MenuItemController extends Controller
             
             $this->get('session')->getFlashBag()->add('success', 'menu.edited');
             
-            return $this->redirectToRoute('core_menuitem_show', array('id' => $menuItem->getId()));
+            return $this->redirectToRoute('coreextra_menuitem_show', array('id' => $menuItem->getId()));
         }
 
         return array(
@@ -206,7 +206,7 @@ class MenuItemController extends Controller
             $this->get('session')->getFlashBag()->add('info', 'menu.deleted');
         }
 
-        return $this->redirectToRoute('core_menuitem_index');
+        return $this->redirectToRoute('coreextra_menuitem_index');
     }
 
    /**
@@ -219,7 +219,7 @@ class MenuItemController extends Controller
     private function createDeleteForm(MenuItem $menuItem)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('core_menuitem_delete', array('id' => $menuItem->getId())))
+            ->setAction($this->generateUrl('coreextra_menuitem_delete', array('id' => $menuItem->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

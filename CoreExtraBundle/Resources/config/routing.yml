@@ -1,0 +1,4 @@
+coreextra:
+    resource: "@CoreExtraBundle/Controller/"
+    type:     annotation
+    prefix:   /

@@ -13,7 +13,7 @@
       <ol class="breadcrumb">
         <li><a href="{{ path('admin_default_index') }}"> <i class="ion-home"></i>  {{ "home" | trans }}</a></li>
         <li><a href="javascript:">{{ "newsletter.plural" | trans }}</a></li>
-        <li><a href="{{ path('core_actor_index') }}">{{ "user.plural" | trans }}</a></li>
+        <li><a href="{{ path('coreextra_actor_index') }}">{{ "user.plural" | trans }}</a></li>
       </ol>
     </section>
     
@@ -95,7 +95,7 @@
 
             TableManaged.init(
                 '#newsletters-table',
-                '{{ url('core_newsletter_listsubscriptionjson') }}',
+                '{{ url('coreextra_newsletter_listsubscriptionjson') }}',
                 [],
                 table_columns,
                 '{{ url('admin_default_getdatatablesi18n', { language: app.request.locale }) }}');

@@ -13,9 +13,9 @@
       <ol class="breadcrumb">
         <li><a href="{{ path('admin_default_index') }}"> <i class="ion-home"></i>  {{ "home" | trans }}</a></li>
         <li><a href="javascript:">{{ "dashboard" | trans }}</a></li>
-        <li><a href="{{ path('core_menuitem_index') }}">{{ "menu.plural" | trans }}</a></li>
-        <li><a href="{{ path('core_menuitem_show', { id: menuitem.id }) }}">{{ menuitem.name }}</a></li>
-        <li><a href="{{ path('core_submenuitem_index', { menuItemId: menuitem.id }) }}">{{ "subitems.plural" | trans }}</a></li>
+        <li><a href="{{ path('coreextra_menuitem_index') }}">{{ "menu.plural" | trans }}</a></li>
+        <li><a href="{{ path('coreextra_menuitem_show', { id: menuitem.id }) }}">{{ menuitem.name }}</a></li>
+        <li><a href="{{ path('coreextra_submenuitem_index', { menuItemId: menuitem.id }) }}">{{ "subitems.plural" | trans }}</a></li>
       </ol>
     </section>
      
@@ -27,7 +27,7 @@
                 <div class="box-body">
                     <div class="clearfix">
                         <div class="btn-group">
-                            <a href="{{ path('core_submenuitem_new', { menuItemId: menuitem.id }) }}" class="btn btn-success btn-flat">
+                            <a href="{{ path('coreextra_submenuitem_new', { menuItemId: menuitem.id }) }}" class="btn btn-success btn-flat">
                                 {{ "add.new.2" | trans }} <i class="ion-plus"></i>
                             </a>
                         </div>
@@ -74,7 +74,7 @@
 
             TableManaged.init(
                 '#subitems-table',
-                '{{ url('core_submenuitem_listjson', { menuItemId: menuitem.id }) }}',
+                '{{ url('coreextra_submenuitem_listjson', { menuItemId: menuitem.id }) }}',
                 [2],
                 table_columns,
                 '{{ url('admin_default_getdatatablesi18n', { language: app.request.locale }) }}');

@@ -12,7 +12,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ path('admin_default_index') }}"> <i class="ion-home"></i>  {{ "home" | trans }}</a></li>
-        <li><a href="{{ path('core_slider_index') }}">{{ "slider.plural" | trans }}</a></li>
+        <li><a href="{{ path('coreextra_slider_index') }}">{{ "slider.plural" | trans }}</a></li>
       </ol>
     </section>
  
@@ -27,7 +27,7 @@
             <div class="box-body">
                 <div class="clearfix">
                     <div class="btn-group">
-                        <a href="{{ path('core_slider_new') }}" class="btn btn-success btn-flat">
+                        <a href="{{ path('coreextra_slider_new') }}" class="btn btn-success btn-flat">
                             {{ "add.new" | trans }} <i class="ion-plus"></i>
                         </a>
                     </div>
@@ -107,7 +107,7 @@
 
             TableManaged.init(
                 '#sliders-table',
-                '{{ url('core_slider_listjson') }}',
+                '{{ url('coreextra_slider_listjson') }}',
                 [3, 6],
                 table_columns,
                 '{{ url('admin_default_getdatatablesi18n', { language: app.request.locale }) }}');

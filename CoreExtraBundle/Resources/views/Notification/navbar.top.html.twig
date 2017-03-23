@@ -11,9 +11,9 @@
       <ul class="menu">
             {% set notifications = get_notification('all', false) %}
             {% for notification in notifications %}
-                {% if notification.type ==  constant('CoreBundle\\Entity\\Notification::TYPE_NEW_OPTIC') %}
+                {% if notification.type ==  constant('CoreBundle\\Entity\\Notification::TYPE_NEW_USER') %}
                 <li>
-                     <a href="{{ path('core_optic_show', {id: notification.detail.optic}) }}">
+                     <a href="{{ path('core_actor_show', {id: notification.detail.actor}) }}">
                         <i class="fa fa-users text-aqua"></i> 
                         Nueva optica<br>
                         <span style="font-size: 10px">Fecha: {{ notification.created | date('d/m/y H:i:s')}}</span>
@@ -38,18 +38,10 @@
                     </a>   
                 </li>
                 {%endif %}
-                {% if notification.type ==  constant('CoreBundle\\Entity\\Notification::TYPE_ADD_WEB') %}
-                <li>
-                     <a href="{{ path('core_optic_show', {id: notification.detail.optic}) }}?web=1">
-                        <i class="fa fa-plus text-green"></i> 
-                        Animate! agrega una web<br>
-                        <span style="font-size: 10px">Fecha: {{ notification.created | date('d/m/y H:i:s')}}</span>
-                    </a>   
-                </li>
-                {%endif %}
+                 
                 {% if notification.type ==  constant('CoreBundle\\Entity\\Notification::TYPE_MOST_VISITED') %}
                 <li>
-                     <a href="{{ path('core_optic_show', {id: notification.detail.optic}) }}?info=1">
+                     <a href="{{ path('core_actor_show', {id: notification.detail.actor}) }}?info=1">
                         <i class="fa fa-plus text-orange"></i> 
                         Estas siendo muy visitado<br>
                         <span style="font-size: 10px">Fecha: {{ notification.created | date('d/m/y H:i:s')}}</span>

@@ -13,7 +13,7 @@
       <ol class="breadcrumb">
         <li><a href="{{ path('admin_default_index') }}"> <i class="ion-home"></i>  {{ "home" | trans }}</a></li>
         <li><a href="javascript:">{{ "newsletter.shipping.plural" | trans }}</a></li>
-        <li><a href="{{ path('core_newsletter_shipping') }}">{{ "newsletter.shipping.plural" | trans }}</a></li>
+        <li><a href="{{ path('coreextra_newsletter_shipping') }}">{{ "newsletter.shipping.plural" | trans }}</a></li>
       </ol>
     </section>
        
@@ -27,7 +27,7 @@
             <div class="box-body">  
                 <div class="clearfix">
                     <div class="btn-group">
-                        <a href="{{ path('core_newsletter_newshipping') }}" class="btn btn-success btn-flat">
+                        <a href="{{ path('coreextra_newsletter_newshipping') }}" class="btn btn-success btn-flat">
                             {{ "add.new" | trans }} <i class="icon-plus"></i>
                         </a>
                     </div>
@@ -101,7 +101,7 @@
 
             TableManaged.init(
                 '#shippings-table',
-                '{{ url('core_newsletter_listshippingjson') }}',
+                '{{ url('coreextra_newsletter_listshippingjson') }}',
                 [],
                 table_columns,
                 '{{ url('admin_default_getdatatablesi18n', { language: app.request.locale }) }}');

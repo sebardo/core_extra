@@ -13,8 +13,8 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ path('admin_default_index') }}"> <i class="ion-home"></i>  {{ "home" | trans }}</a></li>
-        <li><a href="{{ path('core_slider_index') }}">{{ "slider.plural" | trans }}</a></li>
-        <li><a href="{{ path('core_slider_edit', { id: entity.id }) }}">{{ "edit.singular" | trans }} </a></li>
+        <li><a href="{{ path('coreextra_slider_index') }}">{{ "slider.plural" | trans }}</a></li>
+        <li><a href="{{ path('coreextra_slider_edit', { id: entity.id }) }}">{{ "edit.singular" | trans }} </a></li>
       </ol>
     </section>
       
@@ -25,7 +25,7 @@
                 
                 {{ form_start(edit_form, {
                                     'method': 'POST', 
-                                    'action': path('core_slider_edit', { id: entity.id }),
+                                    'action': path('coreextra_slider_edit', { id: entity.id }),
                                     'attr': {'class': 'form-horizontal form-row-seperated'}
                                     }) }}
                     <div class="box-body">
@@ -36,12 +36,12 @@
                         <div class="col-sm-2"></div>
                         <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary btn-flat"><i class="icon-ok"></i> {{ "save" | trans }}</button>
-                            <a href="{{ path('core_slider_show', { id: entity.id }) }}" class="btn btn-default btn-flat">{{ "cancel.singular" | trans }}</a>
+                            <a href="{{ path('coreextra_slider_show', { id: entity.id }) }}" class="btn btn-default btn-flat">{{ "cancel.singular" | trans }}</a>
                             <button type="submit" class="btn btn-danger btn-flat pull-right" id="delete-btn">{{ "delete" | trans }}</button>
                         </div>
                     </div>
                 {{ form_end(edit_form) }}
-                <form id="delete-entity" action="{{ path('core_slider_delete', { id: entity.id }) }}" method="post">
+                <form id="delete-entity" action="{{ path('coreextra_slider_delete', { id: entity.id }) }}" method="post">
                     <input type="hidden" name="_method" value="DELETE" />
                     {{ form_widget(delete_form) }}
                 </form>

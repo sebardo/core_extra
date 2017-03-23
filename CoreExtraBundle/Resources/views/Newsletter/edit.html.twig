@@ -14,8 +14,8 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ path('admin_default_index') }}"> <i class="ion-home"></i>  {{ "home" | trans }}</a></li>
-        <li><a href="{{ path('core_newsletter_index') }}">{{ "newsletter.plural" | trans }}</a></li>
-        <li><a href="{{ path('core_newsletter_edit', {id: entity.id}) }}">{{ 'edit.singular' | trans }} {{ entity.title }}</a></li>
+        <li><a href="{{ path('coreextra_newsletter_index') }}">{{ "newsletter.plural" | trans }}</a></li>
+        <li><a href="{{ path('coreextra_newsletter_edit', {id: entity.id}) }}">{{ 'edit.singular' | trans }} {{ entity.title }}</a></li>
       </ol>
     </section>
       
@@ -26,7 +26,7 @@
         <div class="col-xs-12">
             <div class="box box-info">
                 {{ form_start(edit_form, {
-                                        'action': path('core_newsletter_edit', { id: entity.id }), 
+                                        'action': path('coreextra_newsletter_edit', { id: entity.id }), 
                                         'method': 'post', 
                                         'attr': {'class': 'form-horizontal form-row-seperated'}
                                         }) }}
@@ -36,7 +36,7 @@
 
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary btn-flat"><i class="icon-ok"></i> {{ "save" | trans }}</button>
-                        <a href="{{ path('core_newsletter_show', { id: entity.id }) }}" class="btn btn-flat btn-default">{{ "cancel.singular" | trans }}</a>
+                        <a href="{{ path('coreextra_newsletter_show', { id: entity.id }) }}" class="btn btn-flat btn-default">{{ "cancel.singular" | trans }}</a>
                         <button type="submit" class="btn btn-danger btn-flat pull-right" id="delete-btn">{{ "delete" | trans }}</button>
                     </div>
                 {{ form_end(edit_form) }}
@@ -44,7 +44,7 @@
         </div>
 
         {{ form_start(delete_form, {
-                                'action': path('core_newsletter_delete', { id: entity.id }), 
+                                'action': path('coreextra_newsletter_delete', { id: entity.id }), 
                                 'method': 'post', 
                                 'id': 'delete-entity'
                                 }) }}

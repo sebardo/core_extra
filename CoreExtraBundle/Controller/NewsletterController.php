@@ -85,7 +85,7 @@ class NewsletterController extends Controller
         
         $user = $this->get('security.token_storage')->getToken()->getUser();
         if (!$user->isGranted('ROLE_ADMIN')) {
-            return $this->redirect($this->generateUrl('core_newsletter_index'));
+            return $this->redirect($this->generateUrl('coreextra_newsletter_index'));
         }
         
         $entity->setNewsletter(false);
@@ -93,7 +93,7 @@ class NewsletterController extends Controller
 
         $this->get('session')->getFlashBag()->add('success', 'newsletter.subscripts.disable');
 
-        return $this->redirect($this->generateUrl('core_newsletter_subscription'));
+        return $this->redirect($this->generateUrl('coreextra_newsletter_subscription'));
         
     }
     
@@ -164,7 +164,7 @@ class NewsletterController extends Controller
             
             $this->get('session')->getFlashBag()->add('success', 'menu.created');
 
-            return $this->redirectToRoute('core_newsletter_show', array('id' => $entity->getId()));
+            return $this->redirectToRoute('coreextra_newsletter_show', array('id' => $entity->getId()));
         }
 
         return array(
@@ -212,7 +212,7 @@ class NewsletterController extends Controller
 
             $this->get('session')->getFlashBag()->add('success', 'newsletter.edited');
             
-            return $this->redirectToRoute('core_newsletter_show', array('id' => $newsletter->getId()));
+            return $this->redirectToRoute('coreextra_newsletter_show', array('id' => $newsletter->getId()));
         }
 
         return array(
@@ -242,7 +242,7 @@ class NewsletterController extends Controller
             $this->get('session')->getFlashBag()->add('info', 'newsletter.deleted');
         }
 
-        return $this->redirectToRoute('core_newsletter_index');
+        return $this->redirectToRoute('coreextra_newsletter_index');
     }
 
    /**
@@ -255,7 +255,7 @@ class NewsletterController extends Controller
     private function createDeleteForm(Newsletter $newsletter)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('core_newsletter_delete', array('id' => $newsletter->getId())))
+            ->setAction($this->generateUrl('coreextra_newsletter_delete', array('id' => $newsletter->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;
@@ -389,7 +389,7 @@ class NewsletterController extends Controller
             
             $this->get('session')->getFlashBag()->add('success', 'newsletter.shipping.created');
 
-            return $this->redirect($this->generateUrl('core_newsletter_showshipping', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('coreextra_newsletter_showshipping', array('id' => $entity->getId())));
         }
 
         return array(
@@ -439,7 +439,7 @@ class NewsletterController extends Controller
             return  $this->redirect($request->query->get('redirect'));
         }
         
-        return $this->redirect($this->generateUrl('core_newsletter_shipping'));
+        return $this->redirect($this->generateUrl('coreextra_newsletter_shipping'));
     }
     
     /**
@@ -452,7 +452,7 @@ class NewsletterController extends Controller
     private function createNShippingDeleteForm(NewsletterShipping $nshipping)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('core_newsletter_deleteshipping', array('id' => $nshipping->getId())))
+            ->setAction($this->generateUrl('coreextra_newsletter_deleteshipping', array('id' => $nshipping->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

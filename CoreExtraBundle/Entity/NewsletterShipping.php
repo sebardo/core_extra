@@ -29,7 +29,7 @@ class NewsletterShipping
 
     /**
      * @Assert\NotBlank()
-     * @ORM\ManyToOne(targetEntity="CoreExtraBundle\Entity\Newsletter")
+     * @ORM\ManyToOne(targetEntity="Newsletter")
      * @ORM\JoinColumn(name="newsletter_id", referencedColumnName="id", nullable=true, onDelete="CASCADE")
      */
     protected $newsletter;
@@ -58,7 +58,7 @@ class NewsletterShipping
     /**
      * @var Actor
      *
-     * @ORM\ManyToOne(targetEntity="BaseActor", inversedBy="shippings")
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\BaseActor", inversedBy="shippings")
      * @ORM\JoinColumn(nullable=true)
      */
     private $actor;

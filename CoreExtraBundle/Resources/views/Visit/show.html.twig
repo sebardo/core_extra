@@ -11,8 +11,8 @@
       <ol class="breadcrumb">
         <li><a href="{{ path('admin_default_index') }}"> <i class="ion-home"></i>  {{ 'home' | trans }}</a></li>
         <li><a href="javascript:">{{ 'dashboard' | trans }}</a></li>
-        <li><a href="{{ path('core_visit_index') }}">{{ 'Visit' | trans }}</a></li>
-        <li><a href="{{ path('core_visit_show', {'id': visit.id }) }}">{{ visit  }}</a></li>
+        <li><a href="{{ path('coreextra_visit_index') }}">{{ 'Visit' | trans }}</a></li>
+        <li><a href="{{ path('coreextra_visit_show', {'id': visit.id }) }}">{{ visit  }}</a></li>
       </ol>
     </section>
    
@@ -43,9 +43,9 @@
                     
                     <div class="box-footer">
                         <div class="col-sm-12"> 
-                            <a href="{{ path('core_visit_edit', {'id': visit.id }) }}" class="btn btn-primary btn-flat"><i class="ion-compose"></i> {{ 'edit.singular' | trans }}</a>
+                            <a href="{{ path('coreextra_visit_edit', {'id': visit.id }) }}" class="btn btn-primary btn-flat"><i class="ion-compose"></i> {{ 'edit.singular' | trans }}</a>
                             <button type="submit" class="btn btn-danger btn-flat pull-right" id="delete-btn">{{ 'delete' | trans }}</button>    
-                            <form id="delete-entity" action="{{ path('core_visit_delete', { 'id': visit.id  }) }}" method="post">
+                            <form id="delete-entity" action="{{ path('coreextra_visit_delete', { 'id': visit.id  }) }}" method="post">
                                 <input type="hidden" name="_method" value="DELETE" />
                                 {{ form_widget(delete_form) }}
                             </form>
@@ -104,7 +104,7 @@
         $(document).ready(function(){
             TableManaged.init(
                 '#feedback-table',
-                '{{ url('feedback_core_visit_feedbacklistjson') }}',
+                '{{ url('feedback_coreextra_visit_feedbacklistjson') }}',
                 [],
                 table_columns,
                 '{{ url('admin_default_getdatatablesi18n', { language: app.request.locale }) }}');

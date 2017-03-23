@@ -13,8 +13,8 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ path('admin_default_index') }}"> <i class="ion-home"></i>  {{ "home" | trans }}</a></li>
-        <li><a href="{{ path('core_slider_index') }}">{{ "slider.plural" | trans }}</a></li>
-        <li><a href="{{ path('core_slider_new') }}">{{ "new.singular" | trans }}</a></li>
+        <li><a href="{{ path('coreextra_slider_index') }}">{{ "slider.plural" | trans }}</a></li>
+        <li><a href="{{ path('coreextra_slider_new') }}">{{ "new.singular" | trans }}</a></li>
       </ol>
     </section>
       
@@ -24,7 +24,7 @@
             <div class="box box-info">
                 <!-- form start -->
                 {{ form_start(form, {
-                                    'action': path('core_slider_new'), 
+                                    'action': path('coreextra_slider_new'), 
                                     'method': 'post', 
                                     'attr': {'class': 'form-horizontal form-row-seperated'}
                                     }) }}
@@ -36,7 +36,7 @@
                         <div class="col-sm-2"></div>
                         <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary btn-flat"><i class="icon-ok"></i> {{ "save" | trans }}</button>
-                            <a href="{{ path('core_slider_index') }}" class="btn btn-default btn-flat">{{ "cancel.singular" | trans }}</a>
+                            <a href="{{ path('coreextra_slider_index') }}" class="btn btn-default btn-flat">{{ "cancel.singular" | trans }}</a>
                         </div>
                     </div><!-- /.box-footer -->
                 {{ form_end(form) }}

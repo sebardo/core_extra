@@ -13,7 +13,7 @@
         <li><a href="{{ path('admin_default_index') }}"> <i class="ion-home"></i>  {{ "home" | trans }}</a></li>
         <li><a href="javascript:">{{ "dashboard" | trans }}</a></li>
         <li><a href="javascript:">{{ "fonts" | trans }}</a></li>
-        <li><a href="{{ path('core_font_index') }}">{{ "font.less" | trans }}</a></li>
+        <li><a href="{{ path('coreextra_font_index') }}">{{ "font.less" | trans }}</a></li>
       </ol>
     </section>
       
@@ -29,7 +29,7 @@
             <div class="box-body">
                 <!-- form start -->
                 {{ form_start(form, {
-                                    'action': path('core_font_less'), 
+                                    'action': path('coreextra_font_less'), 
                                     'method': 'post', 
                                     'attr': {'class': 'form-horizontal form-row-seperated'}
                                     }) }}
