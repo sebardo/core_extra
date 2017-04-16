@@ -3,5 +3,10 @@ services:
         class: "CoreExtraBundle\\Service\\NotificationManager"
         calls:
             - [setContainer, ["@service_container"] ] 
-            
+    coreextra_twig_extension:
+        class: "CoreExtraBundle\\Twig\\CoreExtraExtension"
+        calls:
+            - [setContainer, ["@service_container"] ]
+        tags:
+            - { name: twig.extension }        
     
