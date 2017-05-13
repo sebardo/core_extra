@@ -1,4 +1,4 @@
-{% extends "AdminBundle:Base:layout.html.twig" %}
+{% extends twig_global.getParameter('extended_layout_admin') ? twig_global.getParameter('extended_layout_admin') : 'AdminBundle:Base:layout.html.twig' %}
 {% form_theme edit_form 'AdminBundle:Form:fields.html.twig' %}
 
 {% block section %}menuitems{% endblock %}
@@ -134,14 +134,6 @@
         });
         
          jQuery(document).ready(function() {
-            $('#delete-btn').on('click', function(e) {
-                e.preventDefault();
-
-                if (confirm('{{ "are.you.sure" | trans }}')) {
-                    $('#delete-entity').submit();
-                }
-            });
-        
             $('#menu_item_parentMenuItem').select2({
                 placeholder: "",
                 allowClear: true
