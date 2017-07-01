@@ -26,6 +26,7 @@ class CoreExtraExtension extends \Twig_Extension
         return array(
             new Twig_SimpleFunction('get_notification', array($this, 'getNotification')),
             new Twig_SimpleFunction('get_notification_url', array($this, 'getNotificationUrl')),
+            new Twig_SimpleFunction('get_slider_items', array($this, 'getSliderItems')),
         );
     }
     
@@ -55,6 +56,16 @@ class CoreExtraExtension extends \Twig_Extension
 
     }
     
+    /**
+     * {@inheritDoc}
+     */
+    public function getSliderItems()
+    {
+        $em = $this->container->get('doctrine')->getManager();
+        $headers = $em->getRepository("CoreExtraBundle:Slider")->findBy(array('active' => true), array('order' => 'ASC'));
+        return $headers;
+    }
+   
     /**
      * {@inheritDoc}
      */
