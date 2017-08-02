@@ -23,9 +23,10 @@ class MenuItemType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        
-        
-        
+       $conf = array();
+        if(isset($options['uploadDir'])){
+            $conf['uploadDir'] = $options['uploadDir'];
+        }
         $value = Yaml::parse(file_get_contents(__DIR__.'/../../../../../web/bundles/admin/plugins/font-awesome-4.6.3/src/icons.yml'));
 
         $icons = array();
@@ -67,15 +68,19 @@ class MenuItemType extends AbstractType
                 'class' => 'CoreExtraBundle:MenuItem',
                 'required' => false
             ))
-            ->add('image', ImageType::class, array(
-                'required' => false
-            ))
-            ->add('removeImage', HiddenType::class, array( 'attr' => array(
+            ->add(
+                $builder->create('image', ImageType::class, $conf)
+            )
+            ->add('removeImage', HiddenType::class, array('required' => false, 'attr' => array(
                 'class' => 'remove-image'
                 )))
+                
+        
             ->add('url', UrlType::class, array('required' => false))
             ->add('className', TextType::class, array('required' => false))
             ;
+        
+      
     }
 
     /**
@@ -85,6 +90,7 @@ class MenuItemType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' =>  'CoreExtraBundle\Entity\MenuItem',
+            'uploadDir' => null
         ));
     }
 

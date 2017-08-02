@@ -10,17 +10,13 @@
     {{ form_row(form.parentMenuItem, { label: 'menu.parent' }) }}
 {% endif %}
 
-{% if entity is defined and entity.image is not null %}
-    {{ form_row(form.image.file, { div_class: 'no-bottom', image: '/menu/' ~ entity.id ~ '/'  ~ entity.image.path }) }}
-{% else %}
-    {{ form_row(form.image.file, { div_class: 'no-bottom' }) }}
-{% endif %}
+{% include 'CoreBundle:Form:image.html.twig'%}
 
 {{ form_row(form.url, { label: 'URL' }) }}
 {{ form_row(form.icon, { label: 'Icono' }) }}
 {{ form_row(form.className, { label: 'menu.class.name' }) }}
 {{ form_row(form.visible, { label: 'visible' }) }}
-{{ form_row(form.active, { label: 'active' }) }}
+{{ form_row(form.active, { label: 'active'  }) }}
  
 
 {{ form_rest(form) }}

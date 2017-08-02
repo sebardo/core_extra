@@ -68,7 +68,7 @@
                             <td>{{ "image.singular" | trans }}</td>
                             <td>
                                 {% if entity.image %}
-                                    <img width="200" src="{{ asset('uploads/images/menu/' ~ entity.id ~ '/' ~ entity.image) }}" alt="{{ entity.image }}" />
+                                    <img width="200" src="{{ asset(entity.image.path) }}" alt="{{ entity.image }}" />
                                 {% else %}
                                     -
                                 {% endif %}

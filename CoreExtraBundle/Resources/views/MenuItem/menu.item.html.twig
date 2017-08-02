@@ -10,7 +10,7 @@
                 <hr>
                 {% set path = '' %}
                 {% if item.translatable.image|length > 0 %}
-                    {% set path = '/uploads/images/menu/'~item.id~'/'~item.translatable.image.path %}
+                    {% set path = item.translatable.image.path %}
                 {% endif %}
                 {% if path != ''%}
                     <img src="{{path}}" class="img-responsive">

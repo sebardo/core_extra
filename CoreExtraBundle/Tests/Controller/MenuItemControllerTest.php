@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  *
  * To run the testcase:
  * @code
- * phpunit -v -c app vendor/sebardo/core/CoreExtraBundle/Tests/Controller/MenuItemControllerTest.php
+ * php vendor/bin/phpunit -v -c app vendor/sebardo/core/CoreExtraBundle/Tests/Controller/MenuItemControllerTest.php
  * @endcode
  */
 class MenuItemControllerTest  extends CoreTest
@@ -19,7 +19,7 @@ class MenuItemControllerTest  extends CoreTest
 
     /**
      * @code
-     * phpunit -v --filter testMenuItem -c app vendor/sebardo/core/CoreExtraBundle/Tests/Controller/MenuItemControllerTest.php
+     * php vendor/bin/phpunit -v --filter testMenuItem -c app vendor/sebardo/core/CoreExtraBundle/Tests/Controller/MenuItemControllerTest.php
      * @endcode
      * 
      */
@@ -78,7 +78,7 @@ class MenuItemControllerTest  extends CoreTest
     
     /**
      * @code
-     * phpunit -v --filter testSubMenuItem -c app vendor/sebardo/core/CoreExtraBundle/Tests/Controller/MenuItemControllerTest.php
+     * php vendor/bin/phpunit -v --filter testSubMenuItem -c app vendor/sebardo/core/CoreExtraBundle/Tests/Controller/MenuItemControllerTest.php
      * @endcode
      * 
      */

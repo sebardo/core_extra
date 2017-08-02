@@ -93,10 +93,14 @@ class MenuItemController extends Controller
     public function newAction(Request $request)
     {
         $menu = new MenuItem();
-        $form = $this->createForm('CoreExtraBundle\Form\MenuItemType', $menu);
+        $form = $this->createForm('CoreExtraBundle\Form\MenuItemType', $menu, array('uploadDir'=> 'uploads/images/menu' ));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
+            //clean image form
+            $this->get('core_manager')->cleanImageForm($request->files->get('menu_item'), $menu);
+            
             $em = $this->getDoctrine()->getManager();
             $em->persist($menu);
             $em->flush();
@@ -149,15 +153,15 @@ class MenuItemController extends Controller
     {
         
         $deleteForm = $this->createDeleteForm($menuItem);
-        $editForm = $this->createForm('CoreExtraBundle\Form\MenuItemType', $menuItem);
+        $editForm = $this->createForm('CoreExtraBundle\Form\MenuItemType', $menuItem, array('uploadDir'=> 'uploads/images/menu' ));
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
             
-//            $data = $request->request->get('menu_item');
-//            print_r($data);die();
-//            
+            //clean image form
+            $this->get('core_manager')->cleanImageForm($request->files->get('menu_item'), $menuItem);
+            
             if($menuItem->getRemoveImage()){
                 $menuItem->setImage(null);
             }
@@ -165,12 +169,6 @@ class MenuItemController extends Controller
             $em->persist($menuItem);
             $em->flush();
 
-            //images
-            $filesData = $request->files->get('menu_item');
-            if (isset($filesData['image']['file']) && $filesData['image']['file'] instanceof UploadedFile && $editForm->getNormData()->getImage() instanceof Image) {
-                $this->get('core_manager')->uploadMenuImage($menuItem);
-            }
-            
             $this->get('session')->getFlashBag()->add('success', 'menu.edited');
             
             return $this->redirectToRoute('coreextra_menuitem_show', array('id' => $menuItem->getId()));
