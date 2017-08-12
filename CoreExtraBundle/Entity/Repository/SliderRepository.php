@@ -36,8 +36,10 @@ class SliderRepository extends EntityRepository
     {
         // select
         $qb = $this->getQueryBuilder()
-            ->select('s.id, t.title, s.openInNewWindow, s.url, s.active, s.order')
-            ->join('s.translations', 't');
+            ->select('s.id, t.title, s.openInNewWindow, s.url, s.active, i.path')
+            ->join('s.translations', 't')
+            ->join('s.image', 'i')    
+                ;
 
         // search
         if (!empty($search)) {

@@ -8,10 +8,6 @@
 {{ form_row(form.url, { label: 'URL' }) }}
 {{ form_row(form.active, { name: 'active' }) }}
 
-{% if entity is defined and entity.image is not null %}
-    {{ form_row(form.image.file, { div_class: 'no-bottom', image: entity.image.path }) }}
-{% else %}
-    {{ form_row(form.image.file, { div_class: 'no-bottom', image: null }) }}
-{% endif %}
+{#Image field#}
+{% include 'CoreBundle:Form:image.html.twig' %}
 
-{{ form_rest(form) }}

@@ -37,10 +37,8 @@
                     <tr>
                         <th class="hidden-480">ID</th>
                         <th class="hidden-480">{{ "title" | trans }}</th>
-                        <th class="hidden-480" style="width:180px">{{ "open.new.window" | trans }}</th>
-                        <th class="hidden-480">{{ "URL" }}</th>
+                        <th class="hidden-480">{{ "image.singular" }}</th>
                         <th class="hidden-480">{{ "active" | trans }}</th>
-                        <th class="hidden-480">{{ "order.sort" | trans }}</th>
                         <th style="width:70px;"></th>
                     </tr>
                     </thead>
@@ -67,35 +65,21 @@
                 }
             },
             {
-                "mData": "openInNewWindow",
-                "mRender": function(data) {
-                    var code = '';
-
-                    if (true == data) {
-                        code = '<span class="label label-success">{{ "yes" | trans }}</span>';
-                    } else {
-                        code = '<span class="label label-important">{{ "no" | trans }}</span>';
-                    }
-
-                    return code;
+                "mData": function (source) {
+                    return '<img width="100" src="' + source.path + '" />';
                 }
             },
-            { "mData": "url" },
-            {
-                "mData": "active",
-                "mRender": function(data) {
+            {        
+                "mData": function(source) {
                     var code = '';
-
-                    if (true == data) {
-                        code = '<span class="label label-success">{{ "yes" | trans }}</span>';
+                    if (true == source.active) {
+                        code = '<i id="' + source.id + '" onclick="activate(' + source.id + ', \'/admin/sliders/' + source.id + '/enable\')" style="font-size:25px;cursor:pointer;color:#00a65a" class="disable fa fa-check-circle-o" aria-hidden="true"></i>';
                     } else {
-                        code = '<span class="label label-important">{{ "no" | trans }}</span>';
+                        code = '<i id="' + source.id + '" onclick="activate(' + source.id + ', \'/admin/sliders/' + source.id + '/enable\')" style="font-size:25px;cursor:pointer;color:#dd4b39" class="enable fa fa-circle-o" aria-hidden="true"></i>';
                     }
-
                     return code;
                 }
-            },
-            { "mData": "order" },
+            },     
             {
                 "mData": function(source) {
                     return '<a href="' + source.id + '/edit" class="btn btn-xs btn-flat btn-primary"><i class="ion-compose"></i> {{ "edit.singular" | trans }}</a> ';
@@ -108,7 +92,7 @@
             TableManaged.init(
                 '#sliders-table',
                 '{{ url('coreextra_slider_listjson') }}',
-                [3, 6],
+                [],
                 table_columns,
                 '{{ url('admin_default_getdatatablesi18n', { language: app.request.locale }) }}');
         });

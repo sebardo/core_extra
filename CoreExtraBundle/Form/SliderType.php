@@ -19,17 +19,22 @@ class SliderType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $conf = array();
+        if(isset($options['uploadDir'])){
+            $conf['uploadDir'] = $options['uploadDir'];
+        }
+        
         $builder
+            ->add(
+                $builder->create('image', ImageType::class, $conf)
+            )
+            ->add('removeImage', HiddenType::class, array('required' => false, 'attr' => array(
+                'class' => 'remove-image'
+                )))
             ->add('translations', 'A2lix\TranslationFormBundle\Form\Type\TranslationsType')
             ->add('openInNewWindow', null, array('required' => false))
             ->add('url', UrlType::class, array('required' => false))
             ->add('active', null, array('required' => false))
-            ->add('image', ImageType::class, array(
-                'required' => false
-            ))
-            ->add('removeImage', HiddenType::class, array( 'attr' => array(
-                'class' => 'remove-image'
-            )))
             ;
     }
 
@@ -40,6 +45,7 @@ class SliderType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' =>  'CoreExtraBundle\Entity\Slider',
+            'uploadDir' => null
         ));
     }
 }

@@ -67,17 +67,21 @@ class SliderController extends Controller
     public function newAction(Request $request)
     {
         $slider = new Slider();
-        $form = $this->createForm('CoreExtraBundle\Form\SliderType', $slider);
+        $form = $this->createForm('CoreExtraBundle\Form\SliderType', $slider,  array('uploadDir'=> 'uploads/images/slider' ));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            
+            //clean image form
+            $this->get('core_manager')->cleanImageForm($request->files->get('slider'), $slider);
+            
             $em->persist($slider);
             $em->flush();
             
             $this->get('session')->getFlashBag()->add('success', 'slider.created');
 
-            return $this->redirectToRoute('coreextra_slider_show', array('id' => $slider->getId()));
+            return $this->redirectToRoute('coreextra_slider_index');
         }
 
         return array(
@@ -130,7 +134,7 @@ class SliderController extends Controller
 
             $this->get('session')->getFlashBag()->add('success', 'slider.edited');
             
-            return $this->redirectToRoute('coreextra_slider_show', array('id' => $slider->getId()));
+            return $this->redirectToRoute('coreextra_slider_index');
         }
 
         return array(
@@ -176,5 +180,31 @@ class SliderController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    
+    /**
+     * Enable/Disable  a slider entity.
+     *
+     * @Route("/{id}/enable")
+     * @Method("POST")
+     */
+    public function enableAction(Request $request, Slider $slider)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        if($slider->isActive()){
+            $slider->setActive(false);
+        }else{
+            $slider->setActive(true);
+        }
+        
+        $em->flush($slider);
+
+        $sub = new \stdClass();
+        $sub->status = 'success';
+        $sub->id = $slider->getId();
+        $sub->active = $slider->isActive();
+        return new JsonResponse($sub);
+
     }
 }
