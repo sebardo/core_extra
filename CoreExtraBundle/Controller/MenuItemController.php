@@ -93,7 +93,7 @@ class MenuItemController extends Controller
     public function newAction(Request $request)
     {
         $menu = new MenuItem();
-        $form = $this->createForm('CoreExtraBundle\Form\MenuItemType', $menu, array('uploadDir'=> 'uploads/images/menu' ));
+        $form = $this->createForm('CoreExtraBundle\Form\MenuItemType', $menu, array('uploadDir'=> 'uploads/images/menu'));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
