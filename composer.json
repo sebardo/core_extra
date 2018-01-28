@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "sebardo/core": "dev-master"
+        "sebardo/core": "0.1"
     },
     "autoload": {
         "psr-4": {"CoreExtraBundle\\": "CoreExtraBundle"}
